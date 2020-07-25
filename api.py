@@ -1,7 +1,5 @@
-import os
 import random
 import string
-import sys
 
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource
@@ -12,28 +10,29 @@ app = Flask(__name__)
 api = Api(app)
 
 #endpoints
-class Hello(Resource):
+@app.errorhandler(404)
+def page_not_found(e):
+    return '<h1>This Endpoint does not Exist</h1>', 404
+
+class Health(Resource):
     def get(self):
-        payload = {
-            'response': 'Hello world'
-        }
-        return jsonify(payload)
+        return {'response': 'Thread Alive'}
 
 class WriteName(Resource):
     def get(self):
-        defaultSize = 10
-        NameGen = Drive(defaultSize)
+        Size = 10
+        NameGen = Drive(Size)
         payload = {
             "Name": f'{NameGen}'
         }
         return jsonify(payload)
 
-#routes
-api.add_resource(Hello, '/hello')
+#Routes
+api.add_resource(Health, '/', '/health')
 api.add_resource(WriteName, '/namegen')
-
+    
 #Driver code
 if __name__ == "__main__":
     app.run(port='5001')
 else:
-    print('stop that')
+    print('Stop importing my stuff')

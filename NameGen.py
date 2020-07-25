@@ -4,21 +4,28 @@ import string
 # Drive Function should have a size
 size = 0
 
-# Function to write random string
-def Drive(size):
-    if size == 0:
-        raise ValueError('N/A')
+def Drive(size) -> string:
+    #Test Case for invalid inputs
+    if size != type(int):
+        raise ValueError('Must be of type int')
+    if size == 0 or size < 0:
+        raise ValueError('Length must be more than 0')
+
     ranStr = ''
     for _ in range(size):
+        #Create Random Int
         ranInt = random.randint(97, 97 + 26 - 1)
+        #only in range 0-1, then use ranInt if bit generated is == 1 otherwise use the ranInt
         flip_bit = random.randint(0, 1)
         ranInt = ranInt - 32 if flip_bit == 1 else ranInt
+        #return unicode string
         ranStr += (chr(ranInt))
     return(ranStr)
 
 # Prefix for Machine name condition
-def addPrefix(prefix):
-    if len(prefix) > 10:
+def addPrefix(prefix) -> string:
+    #Cannot be larger than 20
+    if len(prefix) > 20:
         print('NaS')
     else:
         return(str(prefix) + '-' + str(Drive(size)))
