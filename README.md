@@ -7,6 +7,9 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=shields)](http://makeapullrequest.com)
 
+Tests:   
+![.github/workflows/apiTest.yml](https://github.com/justnat3/MachineNameAPI/workflows/.github/workflows/apiTest.yml/badge.svg?branch=master)
+
 Simply put, I hate creating machine names so I will just make an API that will make them for me. 
 
 Cheers,
