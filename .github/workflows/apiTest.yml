@@ -24,6 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyassert
         pip install requests
+        pip install flask
+        pip install flask-restful
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: run tests
       run: python3 apiTest.py
