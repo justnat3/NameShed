@@ -4,10 +4,9 @@ import string
 # Drive Function should have a size
 size = 0
 
-def Drive(size) -> string:
+def Drive(size) -> int:
     #Test Case for invalid inputs
-    if size != type(int):
-        raise ValueError('Must be of type int')
+
     if size == 0 or size < 0:
         raise ValueError('Length must be more than 0')
 
@@ -35,4 +34,4 @@ def addPrefix(prefix) -> string:
 if __name__ == "__main__":
     print('In Main: Success')
 else:
-    print('Imported: Success')
+    print('\nImported: Success')

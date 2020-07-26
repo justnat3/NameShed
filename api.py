@@ -20,8 +20,8 @@ class Health(Resource):
 
 class WriteName(Resource):
     def get(self):
-        Size = 10
-        NameGen = Drive(Size)
+        # Size = 10
+        NameGen = Drive(5)
         payload = {
             "Name": f'{NameGen}'
         }
@@ -34,5 +34,3 @@ api.add_resource(WriteName, '/namegen')
 #Driver code
 if __name__ == "__main__":
     app.run(port='5001')
-else:
-    print('Stop importing my stuff')
