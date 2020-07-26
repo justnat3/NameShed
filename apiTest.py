@@ -11,6 +11,7 @@ def threadAlive():
     else: print('FAIL')
     assert_that(resp.ok).is_true()
 
+# Is Gen Endpoint Alive
 def GenAlive():
     resp = requests.get('http://127.0.0.1:5001/namegen')
     print('\nGen Alive test')
