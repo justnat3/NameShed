@@ -25,5 +25,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: run tests
       run: |
+        echo " Please don't break "
         python3 api.py &
+        sleep 3s
         python3 apiTest.py
