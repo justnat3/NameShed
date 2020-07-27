@@ -13,8 +13,5 @@ Tests:
 Simply put, I hate creating machine names so I will just make an API that will make them for me. 
 
 
-![diagrahm machinenameapi](https://user-images.githubusercontent.com/58314490/88503972-d4c6d300-cf98-11ea-8e65-4b6db9092931.png)
-
-
 Cheers,
 Nate-
