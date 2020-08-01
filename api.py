@@ -1,36 +1,60 @@
 import random
 import string
 
-from flask import Flask, jsonify, request
-from flask_restful import Api, Resource
+from flask import Flask, got_request_exception, jsonify, request
+from flask_restful import Api, Resource, reqparse
 
-from NameGen import Drive, addPrefix
+from generator import Drive, addPrefix
 
-app = Flask(__name__) 
-api = Api(app)
+errors = {
+    '500 Handler': {
+        'message': 'Something went horribly wrong!',
+        'status': 500
+    }
+}
 
-#endpoints
+app = Flask(__name__)
+api = Api(app, errors=errors)
+
+# endpoints
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(e) -> int:
     return '<h1>This Endpoint does not Exist</h1>', 404
 
+
 class Health(Resource):
-    def get(self):
+
+    def get(self) -> object:
         return {'response': 'Thread Alive'}
 
+
 class WriteName(Resource):
-    def get(self):
-        # Size = 10
-        NameGen = Drive(5)
+
+    def get(self) -> object:
+        size = 10
+        NameGen = Drive(size)
         payload = {
             "Name": f'{NameGen}'
         }
-        return jsonify(payload)
+        return(jsonify(payload))
 
-#Routes
+
+class PrefixGen(Resource):
+
+    def get(self):
+        prefix = request.args['prefix']
+        size = request.args['size']
+        if len(prefix) > 20:
+            return None
+        # return({"PrefixedName": f"{prefix.upper()}{Drive(int(size))}"})
+        return({'PrefixResponse': f'{addPrefix(prefix, int(size))}'})
+
+
+# Routes
 api.add_resource(Health, '/', '/health')
 api.add_resource(WriteName, '/namegen')
-    
-#Driver code
+api.add_resource(PrefixGen, '/prefixGen')
+
+# Driver code
 if __name__ == "__main__":
     app.run(port='5001')
