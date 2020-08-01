@@ -6,15 +6,8 @@ from flask_restful import Api, Resource, reqparse
 
 from generator import Drive, addPrefix
 
-errors = {
-    '500 Handler': {
-        'message': 'Something went horribly wrong!',
-        'status': 500
-    }
-}
-
 app = Flask(__name__)
-api = Api(app, errors=errors)
+api = Api(app)
 
 # endpoints
 @app.errorhandler(404)
@@ -31,23 +24,27 @@ class Health(Resource):
 class WriteName(Resource):
 
     def get(self) -> object:
-        size = 10
-        NameGen = Drive(size)
-        payload = {
-            "Name": f'{NameGen}'
-        }
-        return(jsonify(payload))
-
+        try:
+            size = request.args['size']
+            NameGen = Drive(int(size))
+            payload = {
+                "Name": f'{NameGen}'
+            }
+            return(jsonify(payload))
+        except:
+            return({'Error':'You may be missing ?size='})
 
 class PrefixGen(Resource):
 
     def get(self):
-        prefix = request.args['prefix']
-        size = request.args['size']
-        if len(prefix) > 20:
-            return None
-        # return({"PrefixedName": f"{prefix.upper()}{Drive(int(size))}"})
-        return({'PrefixResponse': f'{addPrefix(prefix, int(size))}'})
+        try:
+            prefix = request.args['prefix']
+            size = request.args['size']
+            if len(prefix) > 20:
+                return None
+            return({'PrefixResponse': f'{addPrefix(prefix, int(size))}'})
+        except:
+            return {"Error": "Could not proccess request. Make sure you are using ?prefix=str&size=int"}
 
 
 # Routes
@@ -57,4 +54,4 @@ api.add_resource(PrefixGen, '/prefixGen')
 
 # Driver code
 if __name__ == "__main__":
-    app.run(port='5001')
+    app.run()
