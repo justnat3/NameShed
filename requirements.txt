@@ -1,4 +1,4 @@
 flask==1.1.2
 flask-restful==0.3.8
 pyassert==0.4.2
-gunicorn==*
+gunicorn==20.0.4
