@@ -2,7 +2,7 @@ import random
 import string
 import sys
 
-from flask import Flask, got_request_exception, jsonify, request
+from flask import Flask, got_request_exception, jsonify, request, Response
 from flask_restful import Api, Resource, reqparse
 
 from namegen import Drive, addPrefix
@@ -15,6 +15,10 @@ api = Api(app)
 def page_not_found(e) -> int:
     return '<h1>This Endpoint does not Exist</h1>', 404
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return Response("<h1>Flask</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
 
 class Health(Resource):
 
