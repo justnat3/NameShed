@@ -27,5 +27,5 @@ jobs:
       run: |
         echo " Please don't break "
         python3 app.py &
-        sleep 3s
+        sleep 10s
         python3 apiTest.py
