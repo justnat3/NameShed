@@ -1,10 +1,11 @@
 import random
 import string
+import sys
 
 from flask import Flask, got_request_exception, jsonify, request
 from flask_restful import Api, Resource, reqparse
 
-from util.generator import Drive, addPrefix
+from namegen import Drive, addPrefix
 
 app = Flask(__name__)
 api = Api(app)
