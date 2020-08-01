@@ -28,4 +28,4 @@ jobs:
         echo " Please don't break "
         python3 api/api.py &
         sleep 3s
-        python3 util/apiTest.py
+        python3 api/apiTest.py
