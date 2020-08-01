@@ -57,6 +57,5 @@ api.add_resource(Health, '/', '/health')
 api.add_resource(WriteName, '/namegen')
 api.add_resource(PrefixGen, '/prefixGen')
 
-# Driver code
 if __name__ == "__main__":
     app.run()
