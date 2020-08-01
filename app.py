@@ -56,3 +56,7 @@ class PrefixGen(Resource):
 api.add_resource(Health, '/', '/health')
 api.add_resource(WriteName, '/namegen')
 api.add_resource(PrefixGen, '/prefixGen')
+
+
+if __name__ == "__main__":
+    app.run()
