@@ -5,7 +5,7 @@ import api
 
 # Is Thread Alive
 def threadAlive():
-    resp = requests.get('http://127.0.0.1:5001')
+    resp = requests.get('http://127.0.0.1:5000')
     print('\nThread Alive test')
     if resp.ok == True:
         print('PASS')
@@ -15,7 +15,7 @@ def threadAlive():
 
 # Is Gen Endpoint Aliv
 def GenAlive():
-    resp = requests.get('http://127.0.0.1:5001/namegen')
+    resp = requests.get('http://127.0.0.1:5000/namegen')
     print('\nGen Alive test')
     if resp.ok == True:
         print('PASS')
@@ -28,7 +28,7 @@ def PrefixAlive():
     try:
         print('\nPrefixAlive Test')
         resp = requests.get(
-            'http://127.0.0.1:5001/prefixGen?prefix=Test&size=1')
+            'http://127.0.0.1:5000/prefixGen?prefix=Test&size=1')
         if resp.ok == True:
             print('PASS')
         else:
