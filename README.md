@@ -16,9 +16,9 @@ Tests:
 
 Do you hate giving machines static names for generated environments? Me too. That is why I created this simple API.
 
-The goal this API is to dynamically generate arbitrary machine names for you end devices, servers, etc.
+The goal this API is to dynamically generate arbitrary machine names for your end-devices, servers, etc.
 
-Use it and contribute to this repo as you please.
+Use it and/or contribute to this repo as you please. Open to PR's
 
 
 ![image](https://user-images.githubusercontent.com/58314490/89093405-bdfcf380-d37f-11ea-953e-abd281f04141.png)
