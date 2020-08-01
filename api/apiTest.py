@@ -1,7 +1,7 @@
 import requests
 from pyassert import assert_that
 
-import api
+
 
 # Is Thread Alive
 def threadAlive():

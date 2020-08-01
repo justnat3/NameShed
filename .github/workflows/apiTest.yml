@@ -26,6 +26,6 @@ jobs:
     - name: run tests
       run: |
         echo " Please don't break "
-        python3 api.py &
+        python3 api/api.py &
         sleep 3s
-        python3 apiTest.py
+        python3 api/apiTest.py
