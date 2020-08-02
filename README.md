@@ -1,4 +1,4 @@
-<p align="center"><img width=12.5% src="https://user-images.githubusercontent.com/58314490/88469485-a45b3800-ceb7-11ea-86b7-b93700e85578.png"></p>
+<p align="center"><img width=12.5% src="https://user-images.githubusercontent.com/58314490/89126070-78881580-d4a8-11ea-9176-249dde9c2553.png"></p>
 
 <h2 align="center">Machine Naming API </h2>
 
